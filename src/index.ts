@@ -10,9 +10,14 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+import { sources } from './sources';
 
 export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+
+	async scheduled(_controller, env, _ctx) {
+		// @ts-ignore
+		const HOME_PAGE = env.API_URL;
+
+		await Promise.all(Object.keys(sources).map((id) => fetch(`${HOME_PAGE}/api/s?id=${id}`))).catch(console.error);
 	},
 } satisfies ExportedHandler<Env>;
