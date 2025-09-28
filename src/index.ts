@@ -6,30 +6,22 @@ export default {
 		// @ts-ignore
 		const HOME_PAGE = env.API_URL;
 
-		// 批量并发调用 API
 		const keys = Object.keys(sources);
-		const batchSize = 10;
+		const batchSize = 10; // 每批 10 个，避免超并发
 
 		for (let i = 0; i < keys.length; i += batchSize) {
 			const batch = keys.slice(i, i + batchSize);
 			await Promise.all(
-				batch.map((id) =>
-					fetch(`${HOME_PAGE}/api/s?id=${id}`, { method: "POST" })
-				)
-			).catch(console.error);
+				batch.map(async (id) => {
+					try {
+						const resp = await fetch(`${HOME_PAGE}/api/s?id=${id}`);
+						resp.body?.cancel();
+					} catch (err) {
+						console.error(`Failed to fetch ${id}:`, err);
+					}
+				})
+			);
 		}
-
 		console.log("[Worker Cron] Finished processing sources");
 	},
-
-	// HTTP 请求触发，用于手动触发或测试
-	async fetch(request, env, ctx) {
-		if (request.url.includes("/run-cron")) {
-			if (this.scheduled) {
-				await this.scheduled({}, env, ctx);
-			}
-			return new Response("Cron triggered manually!");
-		}
-		return new Response("Hello World!");
-	}
 } satisfies ExportedHandler<Env>;
