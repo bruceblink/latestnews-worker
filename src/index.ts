@@ -7,7 +7,7 @@ export default {
 		const HOME_PAGE = env.API_URL;
 
 		const keys = Object.keys(sources);
-		const batchSize = 10; // 每批 10 个，避免超并发
+		const batchSize = 5; // 每批 5 个，避免超并发
 
 		for (let i = 0; i < keys.length; i += batchSize) {
 			const batch = keys.slice(i, i + batchSize);
