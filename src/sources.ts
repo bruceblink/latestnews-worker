@@ -1,13 +1,4 @@
 export const sources = {
-	"v2ex": {
-		"redirect": "v2ex-share",
-		"name": "V2EX",
-		"column": "tech",
-		"home": "https://v2ex.com/",
-		"color": "slate",
-		"interval": 600000,
-		"title": "最新分享"
-	},
 	"v2ex-share": {
 		"name": "V2EX",
 		"column": "tech",
@@ -332,16 +323,6 @@ export const sources = {
 		"color": "red",
 		"interval": 600000
 	},
-	"github": {
-		"redirect": "github-trending-today",
-		"name": "Github",
-		"type": "hottest",
-		"column": "tech",
-		"home": "https://github.com/",
-		"color": "gray",
-		"interval": 600000,
-		"title": "Today"
-	},
 	"github-trending-today": {
 		"name": "Github",
 		"type": "hottest",
@@ -350,16 +331,6 @@ export const sources = {
 		"color": "gray",
 		"interval": 600000,
 		"title": "Today"
-	},
-	"bilibili": {
-		"redirect": "bilibili-hot-search",
-		"name": "哔哩哔哩",
-		"type": "hottest",
-		"column": "china",
-		"home": "https://www.bilibili.com",
-		"color": "blue",
-		"interval": 600000,
-		"title": "热搜"
 	},
 	"bilibili-hot-search": {
 		"name": "哔哩哔哩",
@@ -455,15 +426,6 @@ export const sources = {
 		"home": "https://www.ifeng.com",
 		"color": "red",
 		"interval": 600000
-	},
-	"chongbuluo": {
-		"redirect": "chongbuluo-latest",
-		"name": "虫部落",
-		"column": "china",
-		"home": "https://www.chongbuluo.com/forum.php?mod=guide&view=newthread",
-		"color": "green",
-		"interval": 1800000,
-		"title": "最新"
 	},
 	"chongbuluo-latest": {
 		"name": "虫部落",
