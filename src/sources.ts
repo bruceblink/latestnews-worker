@@ -427,14 +427,6 @@ export const sources = {
 		"color": "red",
 		"interval": 600000
 	},
-	"chongbuluo-latest": {
-		"name": "虫部落",
-		"column": "china",
-		"home": "https://www.chongbuluo.com/forum.php?mod=guide&view=newthread",
-		"color": "green",
-		"interval": 1800000,
-		"title": "最新"
-	},
 	"chongbuluo-hot": {
 		"name": "虫部落",
 		"type": "hottest",
